@@ -16,23 +16,32 @@
       font-family: 'Poppins', sans-serif;
       background-color: #f2fefb;
       color: #2e7d32;
+      overflow-x: hidden;
     }
 
     header {
       background-color: #d0f0e0;
       text-align: center;
-      padding: 3rem 1rem 2rem;
+      padding: 4rem 1rem 3rem;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      animation: fadeIn 1s ease-in;
     }
 
     header h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
+      font-size: 3.2rem;
+      margin-bottom: 1rem;
     }
 
     header p {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    main {
+      animation: fadeInUp 1s ease-in forwards;
     }
 
     .location {
@@ -41,6 +50,11 @@
       align-items: center;
       padding: 4rem 1rem;
       border-bottom: 2px solid #cce8dd;
+      transition: background-color 0.3s ease;
+    }
+
+    .location:hover {
+      background-color: #e5f7f0;
     }
 
     .location img {
@@ -49,6 +63,11 @@
       border-radius: 20px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
       margin-bottom: 2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .location:hover img {
+      transform: scale(1.02);
     }
 
     .location h2 {
@@ -70,9 +89,20 @@
       color: #555;
     }
 
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0 }
+      to { opacity: 1 }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     @media (max-width: 600px) {
       header h1 {
-        font-size: 2rem;
+        font-size: 2.3rem;
       }
       .location h2 {
         font-size: 1.5rem;
@@ -87,7 +117,9 @@
 
 <header>
   <h1>🌱 Paris Éco-Tour</h1>
-  <p>Découvrez les lieux écoresponsables emblématiques de Paris : cafés, marchés, hôtels et plus encore.</p>
+  <p>
+    Un site qui connecte les citoyens avec les commerçants écoresponsables pour une ville plus verte, plus solidaire, et plus durable. Explorez les lieux qui agissent concrètement pour l’environnement : restaurants végétariens, marchés bio, ateliers zéro déchet, hôtels écologiques et plus encore.
+  </p>
 </header>
 
 <main>
