@@ -21,20 +21,26 @@
 
     header {
       background-color: #d0f0e0;
-      /* Prend tout l'écran */
       height: 100vh;
       width: 100vw;
-
-      /* Flexbox centré vertical & horizontal */
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
       padding: 2rem 1rem;
-
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       animation: fadeIn 1s ease-in;
+      position: relative; /* pour positionner les décorations */
+
+      /* décorations feuilles */
+      background-image:
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="%2348a14a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C15 5 18 8 18 11s-3 6-6 9-6-3-6-6 3-9 6-12z"/></svg>'),
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="%232e7d32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2C11 5 14 8 14 11s-3 6-6 9-6-3-6-6 3-9 6-12z"/></svg>');
+
+      background-repeat: no-repeat, no-repeat;
+      background-position: top left 20px, bottom right 30px;
+      background-size: 80px 80px, 60px 60px;
     }
 
     header h1 {
@@ -87,7 +93,6 @@
       color: #555;
     }
 
-    /* Animations */
     @keyframes fadeIn {
       from { opacity: 0 }
       to { opacity: 1 }
@@ -98,7 +103,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Responsive */
     @media (max-width: 600px) {
       header h1 {
         font-size: 2.3rem;
@@ -166,4 +170,3 @@
 
 </body>
 </html>
-
