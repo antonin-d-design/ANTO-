@@ -6,117 +6,156 @@
   <title>Paris Éco-Tour</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
   <style>
+    /* Reset */
     * {
-      margin: 0; padding: 0; box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: #f2fefb;
+      background-color: #f2fefb;
       color: #2e7d32;
       overflow-x: hidden;
     }
 
+    /* HEADER - plein écran avec décor riche */
     header {
       position: relative;
       height: 100vh;
       width: 100vw;
-      background: #d0f0e0;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      padding: 3rem 2rem;
+      background-color: #d0f0e0;
       text-align: center;
-      padding: 4rem 2rem;
-      color: #2e7d32;
-      overflow: hidden;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+      color: #2e7d32;
     }
 
     header h1 {
-      font-size: 3.8rem;
-      margin-bottom: 1.8rem;
-      font-weight: 700;
-      letter-spacing: 1.6px;
+      font-size: 3.6rem;
+      margin-bottom: 1.5rem;
+      z-index: 10;
       position: relative;
-      z-index: 20;
+      font-weight: 700;
+      letter-spacing: 1.5px;
     }
 
     header p {
-      font-size: 1.5rem;
-      max-width: 750px;
-      line-height: 1.75;
+      font-size: 1.4rem;
+      max-width: 700px;
+      line-height: 1.7;
       color: #2b4d25;
+      z-index: 10;
       position: relative;
-      z-index: 20;
       padding: 0 1rem;
     }
 
-    /* FORMES GEOMETRIQUES ET FOUGERES : beaucoup beaucoup plus chargées */
-
-    /* Base pour les formes géométriques */
-    .shape {
+    /* Formes géométriques plus nombreuses autour */
+    header::before,
+    header::after {
+      content: '';
       position: absolute;
       opacity: 0.4;
-      border-radius: 8px;
+      z-index: 1;
+      border-radius: 10px;
       filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.05));
-      z-index: 5;
-      mix-blend-mode: multiply;
     }
 
-    /* Carrés & rectangles pastel */
-    .shape.square1 { width: 120px; height: 120px; background: #a4d7a7; top: 5%; left: 5%; transform: rotate(10deg); }
-    .shape.square2 { width: 90px; height: 90px; background: #c7e7c3; top: 12%; right: 12%; transform: rotate(-12deg); }
-    .shape.square3 { width: 140px; height: 60px; background: #b7dca8; bottom: 25%; left: 8%; transform: rotate(-25deg); }
-    .shape.square4 { width: 80px; height: 80px; background: #c1e3c7; bottom: 12%; right: 20%; transform: rotate(20deg); }
-    .shape.square5 { width: 100px; height: 100px; background: #a2d9a0; top: 35%; left: 50%; transform: rotate(-30deg); }
-    .shape.square6 { width: 150px; height: 90px; background: #b8e0b6; top: 40%; right: 40%; transform: rotate(15deg); }
-    .shape.square7 { width: 70px; height: 70px; background: #a9d7a4; bottom: 8%; left: 35%; transform: rotate(-15deg); }
-    .shape.square8 { width: 60px; height: 110px; background: #c9eac8; top: 20%; right: 28%; transform: rotate(-5deg); }
-    .shape.square9 { width: 120px; height: 60px; background: #9fd194; bottom: 40%; left: 65%; transform: rotate(12deg); }
-    .shape.square10 { width: 80px; height: 80px; background: #b1dfa9; top: 75%; right: 15%; transform: rotate(-18deg); }
+    header::before {
+      top: 10%;
+      left: 3%;
+      width: 180px;
+      height: 180px;
+      background: #a3d9a5;
+      clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 0 100%);
+      transform: rotate(15deg);
+    }
 
-    /* Cercles & ellipses */
-    .shape.circle1 { width: 100px; height: 100px; background: #a4d8a6; border-radius: 50%; top: 25%; left: 25%; opacity: 0.35; }
-    .shape.circle2 { width: 140px; height: 140px; background: #bde9c8; border-radius: 50%; bottom: 30%; right: 30%; opacity: 0.38; }
-    .shape.circle3 { width: 90px; height: 90px; background: #9fcf90; border-radius: 50%; top: 65%; left: 20%; opacity: 0.4; }
-    .shape.circle4 { width: 120px; height: 120px; background: #b5e2b4; border-radius: 50%; top: 55%; right: 10%; opacity: 0.3; }
-    .shape.circle5 { width: 75px; height: 75px; background: #c2f0c7; border-radius: 50%; bottom: 10%; left: 50%; opacity: 0.4; }
+    header::after {
+      bottom: 12%;
+      right: 5%;
+      width: 140px;
+      height: 140px;
+      background: #8acc94;
+      border-radius: 50%;
+      transform: rotate(-10deg);
+    }
 
-    /* Triangles stylisés */
-    .shape.triangle1 {
-      width: 0; height: 0;
-      border-left: 60px solid transparent;
-      border-right: 60px solid transparent;
-      border-bottom: 100px solid #a5d9a5;
-      top: 15%; right: 45%;
+    /* Décos supplémentaires - carrés, cercles, rectangles */
+    .shape-1 {
+      position: absolute;
+      top: 5%;
+      right: 15%;
+      width: 90px;
+      height: 90px;
+      background: #c7e6c4;
+      clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
       opacity: 0.35;
-      transform: rotate(-15deg);
+      transform: rotate(8deg);
+      z-index: 1;
+      border-radius: 8px;
+    }
+
+    .shape-2 {
+      position: absolute;
+      bottom: 25%;
+      left: 12%;
+      width: 120px;
+      height: 40px;
+      background: #b6d9aa;
+      opacity: 0.3;
+      border-radius: 12px;
+      transform: rotate(-25deg);
+      z-index: 1;
+    }
+
+    .shape-3 {
+      position: absolute;
+      top: 40%;
+      left: 30%;
+      width: 80px;
+      height: 80px;
+      background: #9fd18d;
+      border-radius: 50%;
+      opacity: 0.4;
+      transform: rotate(15deg);
+      z-index: 1;
+    }
+
+    .shape-4 {
+      position: absolute;
+      bottom: 8%;
+      right: 25%;
+      width: 50px;
+      height: 150px;
+      background: #a7d3a0;
+      clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+      opacity: 0.35;
+      transform: rotate(-5deg);
+      z-index: 1;
       border-radius: 12px;
     }
-    .shape.triangle2 {
-      width: 0; height: 0;
-      border-left: 40px solid transparent;
-      border-right: 40px solid transparent;
-      border-bottom: 70px solid #b3e3b3;
-      bottom: 20%; left: 40%;
-      opacity: 0.4;
-      transform: rotate(25deg);
-      border-radius: 10px;
-    }
 
-    /* Fougères stylisées très nombreuses, différentes tailles et directions */
-
-    .fern {
+    /* Fougères stylisées multipoints autour */
+    .fern-left-top,
+    .fern-left-bottom,
+    .fern-right-top,
+    .fern-right-bottom {
       position: absolute;
-      width: 90px;
-      height: 140px;
+      width: 110px;
+      height: 180px;
       background: repeating-linear-gradient(
         45deg,
         #b2e0b2,
-        #b2e0b2 8px,
-        transparent 8px,
-        transparent 16px
+        #b2e0b2 10px,
+        transparent 10px,
+        transparent 20px
       );
       clip-path: polygon(
         30% 0%, 40% 10%, 35% 20%, 50% 25%, 40% 35%, 60% 40%, 45% 50%,
@@ -124,42 +163,152 @@
         0% 100%, 0% 0%
       );
       opacity: 0.45;
-      z-index: 7;
-      filter: drop-shadow(0 1px 1px rgba(0,0,0,0.08));
-      mix-blend-mode: multiply;
-      border-radius: 12px;
+      transform-origin: center;
+      z-index: 2;
     }
-    /* Variantes de fougères */
 
-    .fern1 { top: 12%; left: 8%; transform: rotate(-15deg) scale(1); }
-    .fern2 { top: 40%; left: 12%; transform: rotate(8deg) scale(0.8); background: repeating-linear-gradient(135deg, #a6d5a6, #a6d5a6 7px, transparent 7px, transparent 15px); }
-    .fern3 { top: 65%; left: 5%; transform: rotate(-5deg) scale(1.2); }
-    .fern4 { top: 80%; left: 18%; transform: rotate(20deg) scale(0.9); background: repeating-linear-gradient(45deg, #b0dba0, #b0dba0 6px, transparent 6px, transparent 14px); }
+    .fern-left-top {
+      top: 15%;
+      left: 10px;
+      transform: rotate(-15deg);
+    }
 
-    .fern5 { top: 10%; right: 12%; transform: rotate(20deg) scale(1); }
-    .fern6 { top: 38%; right: 18%; transform: rotate(-10deg) scale(0.85); background: repeating-linear-gradient(135deg, #b2e1b2, #b2e1b2 9px, transparent 9px, transparent 17px); }
-    .fern7 { top: 60%; right: 8%; transform: rotate(10deg) scale(1.1); }
-    .fern8 { bottom: 18%; right: 22%; transform: rotate(-15deg) scale(0.95); background: repeating-linear-gradient(45deg, #abd99d, #abd99d 7px, transparent 7px, transparent 16px); }
+    .fern-left-bottom {
+      bottom: 15%;
+      left: 20px;
+      background: repeating-linear-gradient(
+        135deg,
+        #a6d5a6,
+        #a6d5a6 8px,
+        transparent 8px,
+        transparent 18px
+      );
+      clip-path: polygon(
+        40% 0%, 50% 12%, 45% 22%, 60% 27%, 50% 37%, 70% 42%, 55% 52%,
+        75% 57%, 60% 67%, 80% 72%, 65% 82%, 85% 87%, 70% 97%, 90% 100%,
+        10% 100%, 10% 0%
+      );
+      transform: rotate(5deg);
+    }
 
-    .fern9 { bottom: 10%; left: 15%; transform: rotate(-8deg) scale(1.05); }
-    .fern10 { bottom: 25%; left: 30%; transform: rotate(15deg) scale(0.85); background: repeating-linear-gradient(135deg, #a4db9f, #a4db9f 8px, transparent 8px, transparent 18px); }
-    .fern11 { bottom: 40%; right: 28%; transform: rotate(-12deg) scale(1); }
-    .fern12 { bottom: 65%; right: 10%; transform: rotate(8deg) scale(0.9); background: repeating-linear-gradient(45deg, #b7e3b7, #b7e3b7 7px, transparent 7px, transparent 15px); }
+    .fern-right-top {
+      top: 12%;
+      right: 15px;
+      background: repeating-linear-gradient(
+        135deg,
+        #9dd39d,
+        #9dd39d 8px,
+        transparent 8px,
+        transparent 18px
+      );
+      clip-path: polygon(
+        40% 0%, 50% 12%, 45% 22%, 60% 27%, 50% 37%, 70% 42%, 55% 52%,
+        75% 57%, 60% 67%, 80% 72%, 65% 82%, 85% 87%, 70% 97%, 90% 100%,
+        10% 100%, 10% 0%
+      );
+      transform: rotate(15deg);
+    }
 
-    /* Pour mobile on cache les décorations pour que ça reste propre */
+    .fern-right-bottom {
+      bottom: 18%;
+      right: 25px;
+      background: repeating-linear-gradient(
+        45deg,
+        #b2e0b2,
+        #b2e0b2 10px,
+        transparent 10px,
+        transparent 20px
+      );
+      clip-path: polygon(
+        30% 0%, 40% 10%, 35% 20%, 50% 25%, 40% 35%, 60% 40%, 45% 50%,
+        65% 55%, 50% 65%, 70% 70%, 55% 80%, 75% 85%, 60% 95%, 80% 100%,
+        0% 100%, 0% 0%
+      );
+      transform: rotate(-5deg);
+    }
+
+    /* MAIN contenu */
+    main {
+      animation: fadeInUp 1s ease-in forwards;
+      padding: 2rem 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+      color: #2e7d32;
+    }
+
+    .location {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 4rem 1rem;
+      border-bottom: 2px solid #cce8dd;
+      transition: background-color 0.3s ease;
+    }
+
+    .location:hover {
+      background-color: #e5f7f0;
+    }
+
+    .location h2 {
+      font-size: 2.2rem;
+      color: #1b5e20;
+      margin-bottom: 1rem;
+    }
+
+    .location p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      text-align: center;
+      color: #333;
+    }
+
+    .address {
+      font-style: italic;
+      margin-top: 1rem;
+      color: #555;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
     @media (max-width: 600px) {
       header h1 {
-        font-size: 2.6rem;
+        font-size: 2.4rem;
       }
       header p {
         font-size: 1.1rem;
       }
-      .shape,
-      .fern {
+      .location h2 {
+        font-size: 1.5rem;
+      }
+      .location p {
+        font-size: 1rem;
+      }
+
+      /* Cacher les formes pour mobile */
+      header::before,
+      header::after,
+      .shape-1,
+      .shape-2,
+      .shape-3,
+      .shape-4,
+      .fern-left-top,
+      .fern-left-bottom,
+      .fern-right-top,
+      .fern-right-bottom {
         display: none;
       }
     }
-
   </style>
 </head>
 <body>
@@ -167,41 +316,17 @@
     <h1>Paris Éco-Tour</h1>
     <p>Découvrez Paris autrement, à travers des balades éco-responsables et des initiatives durables qui font la ville plus verte chaque jour.</p>
 
-    <!-- Formes géométriques multiples -->
-    <div class="shape square1"></div>
-    <div class="shape square2"></div>
-    <div class="shape square3"></div>
-    <div class="shape square4"></div>
-    <div class="shape square5"></div>
-    <div class="shape square6"></div>
-    <div class="shape square7"></div>
-    <div class="shape square8"></div>
-    <div class="shape square9"></div>
-    <div class="shape square10"></div>
+    <!-- Formes supplémentaires -->
+    <div class="shape-1"></div>
+    <div class="shape-2"></div>
+    <div class="shape-3"></div>
+    <div class="shape-4"></div>
 
-    <div class="shape circle1"></div>
-    <div class="shape circle2"></div>
-    <div class="shape circle3"></div>
-    <div class="shape circle4"></div>
-    <div class="shape circle5"></div>
-
-    <div class="shape triangle1"></div>
-    <div class="shape triangle2"></div>
-
-    <!-- Fougères stylisées -->
-    <div class="fern fern1"></div>
-    <div class="fern fern2"></div>
-    <div class="fern fern3"></div>
-    <div class="fern fern4"></div>
-    <div class="fern fern5"></div>
-    <div class="fern fern6"></div>
-    <div class="fern fern7"></div>
-    <div class="fern fern8"></div>
-    <div class="fern fern9"></div>
-    <div class="fern fern10"></div>
-    <div class="fern fern11"></div>
-    <div class="fern fern12"></div>
-
+    <!-- Fougères décoratives -->
+    <div class="fern-left-top"></div>
+    <div class="fern-left-bottom"></div>
+    <div class="fern-right-top"></div>
+    <div class="fern-right-bottom"></div>
   </header>
 
   <main>
