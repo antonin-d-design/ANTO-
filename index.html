@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
@@ -18,7 +18,7 @@
       overflow-x: hidden;
     }
     header {
-      background: linear-gradient(to bottom right, #c9f4e6, #d8fff3);
+      background: linear-gradient(135deg, #e1f8f0 0%, #f9fefc 100%);
       height: 100vh;
       width: 100vw;
       display: flex;
@@ -31,18 +31,7 @@
       animation: fadeIn 1s ease-in;
       position: relative;
       z-index: 1;
-      overflow: hidden;
-    }
-    header::before {
-      content: "";
-      position: absolute;
-      top: -50px;
-      left: -50px;
-      width: 200%;
-      height: 200%;
-      background-image: radial-gradient(circle at 30% 30%, rgba(64, 176, 116, 0.1), transparent 40%),
-                        radial-gradient(circle at 70% 70%, rgba(64, 176, 116, 0.15), transparent 45%);
-      z-index: 0;
+      overflow: visible;
     }
     header h1,
     header p {
@@ -54,9 +43,6 @@
       font-size: 3.2rem;
       margin-bottom: 1.2rem;
       line-height: 1.1;
-      background: linear-gradient(90deg, #2e7d32, #66bb6a);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
     }
     header p {
       font-size: 1.3rem;
@@ -65,7 +51,61 @@
       padding: 0 1rem;
     }
 
+    .decorative-shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.15;
+      z-index: 2;
+    }
+    .circle-1 {
+      width: 200px;
+      height: 200px;
+      background-color: #b2e2d6;
+      top: 10%;
+      left: 10%;
+    }
+    .circle-2 {
+      width: 150px;
+      height: 150px;
+      background-color: #d0f0e0;
+      top: 60%;
+      right: 15%;
+    }
+    .line-curve {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border: 2px solid #a4d4c3;
+      border-radius: 40% 60% 30% 70% / 60% 30% 70% 40%;
+      top: 40%;
+      left: 40%;
+      opacity: 0.2;
+      transform: rotate(30deg);
+      z-index: 1;
+    }
+    .flower {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/72/Flower_icon.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.25;
+      z-index: 3;
+    }
+    .flower-1 {
+      top: 20%;
+      left: 70%;
+    }
+    .flower-2 {
+      bottom: 10%;
+      right: 20%;
+    }
+
     @media (max-width: 600px) {
+      .decorative-shape, .flower {
+        display: none;
+      }
       header h1 {
         font-size: 2.3rem;
       }
@@ -77,7 +117,6 @@
     main {
       animation: fadeInUp 1s ease-in forwards;
     }
-
     .location {
       display: flex;
       flex-direction: column;
@@ -122,6 +161,13 @@
   <p>
     Découvrez les perles écoresponsables de Paris. De lieux insolites à des adresses engagées, vivez une ville plus verte et plus humaine. Restaurants végétaux, marchés bio, ateliers DIY, hôtels durables... Tout y est pour une exploration consciente et joyeuse.
   </p>
+
+  <!-- Formes décoratives -->
+  <div class="decorative-shape circle-1"></div>
+  <div class="decorative-shape circle-2"></div>
+  <div class="decorative-shape line-curve"></div>
+  <div class="flower flower-1"></div>
+  <div class="flower flower-2"></div>
 </header>
 
 <main>
@@ -162,4 +208,4 @@
 </section>
 </main>
 </body>
-</html
+</html>
