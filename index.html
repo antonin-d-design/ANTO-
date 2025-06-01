@@ -2,11 +2,10 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Paris Éco-Tour</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset */
     * {
       margin: 0;
       padding: 0;
@@ -20,220 +19,46 @@
       overflow-x: hidden;
     }
 
-    /* HEADER - plein écran avec décor riche */
     header {
-      position: relative;
+      background-color: #d0f0e0;
       height: 100vh;
       width: 100vw;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 3rem 2rem;
-      background-color: #d0f0e0;
       text-align: center;
+      padding: 2rem 1rem;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      overflow: hidden;
-      color: #2e7d32;
+      animation: fadeIn 1s ease-in;
+      position: relative; /* pour positionner les décorations */
+
+      /* décorations feuilles */
+      background-image:
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="%2348a14a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C15 5 18 8 18 11s-3 6-6 9-6-3-6-6 3-9 6-12z"/></svg>'),
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="%232e7d32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2C11 5 14 8 14 11s-3 6-6 9-6-3-6-6 3-9 6-12z"/></svg>');
+
+      background-repeat: no-repeat, no-repeat;
+      background-position: top left 20px, bottom right 30px;
+      background-size: 80px 80px, 60px 60px;
     }
 
     header h1 {
-      font-size: 3.6rem;
-      margin-bottom: 1.5rem;
-      z-index: 10;
-      position: relative;
-      font-weight: 700;
-      letter-spacing: 1.5px;
+      font-size: 3.2rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.1;
     }
 
     header p {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
+      color: #333;
       max-width: 700px;
-      line-height: 1.7;
-      color: #2b4d25;
-      z-index: 10;
-      position: relative;
+      line-height: 1.6;
       padding: 0 1rem;
     }
 
-    /* Formes géométriques plus nombreuses autour */
-    header::before,
-    header::after {
-      content: '';
-      position: absolute;
-      opacity: 0.4;
-      z-index: 1;
-      border-radius: 10px;
-      filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.05));
-    }
-
-    header::before {
-      top: 10%;
-      left: 3%;
-      width: 180px;
-      height: 180px;
-      background: #a3d9a5;
-      clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 0 100%);
-      transform: rotate(15deg);
-    }
-
-    header::after {
-      bottom: 12%;
-      right: 5%;
-      width: 140px;
-      height: 140px;
-      background: #8acc94;
-      border-radius: 50%;
-      transform: rotate(-10deg);
-    }
-
-    /* Décos supplémentaires - carrés, cercles, rectangles */
-    .shape-1 {
-      position: absolute;
-      top: 5%;
-      right: 15%;
-      width: 90px;
-      height: 90px;
-      background: #c7e6c4;
-      clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
-      opacity: 0.35;
-      transform: rotate(8deg);
-      z-index: 1;
-      border-radius: 8px;
-    }
-
-    .shape-2 {
-      position: absolute;
-      bottom: 25%;
-      left: 12%;
-      width: 120px;
-      height: 40px;
-      background: #b6d9aa;
-      opacity: 0.3;
-      border-radius: 12px;
-      transform: rotate(-25deg);
-      z-index: 1;
-    }
-
-    .shape-3 {
-      position: absolute;
-      top: 40%;
-      left: 30%;
-      width: 80px;
-      height: 80px;
-      background: #9fd18d;
-      border-radius: 50%;
-      opacity: 0.4;
-      transform: rotate(15deg);
-      z-index: 1;
-    }
-
-    .shape-4 {
-      position: absolute;
-      bottom: 8%;
-      right: 25%;
-      width: 50px;
-      height: 150px;
-      background: #a7d3a0;
-      clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
-      opacity: 0.35;
-      transform: rotate(-5deg);
-      z-index: 1;
-      border-radius: 12px;
-    }
-
-    /* Fougères stylisées multipoints autour */
-    .fern-left-top,
-    .fern-left-bottom,
-    .fern-right-top,
-    .fern-right-bottom {
-      position: absolute;
-      width: 110px;
-      height: 180px;
-      background: repeating-linear-gradient(
-        45deg,
-        #b2e0b2,
-        #b2e0b2 10px,
-        transparent 10px,
-        transparent 20px
-      );
-      clip-path: polygon(
-        30% 0%, 40% 10%, 35% 20%, 50% 25%, 40% 35%, 60% 40%, 45% 50%,
-        65% 55%, 50% 65%, 70% 70%, 55% 80%, 75% 85%, 60% 95%, 80% 100%,
-        0% 100%, 0% 0%
-      );
-      opacity: 0.45;
-      transform-origin: center;
-      z-index: 2;
-    }
-
-    .fern-left-top {
-      top: 15%;
-      left: 10px;
-      transform: rotate(-15deg);
-    }
-
-    .fern-left-bottom {
-      bottom: 15%;
-      left: 20px;
-      background: repeating-linear-gradient(
-        135deg,
-        #a6d5a6,
-        #a6d5a6 8px,
-        transparent 8px,
-        transparent 18px
-      );
-      clip-path: polygon(
-        40% 0%, 50% 12%, 45% 22%, 60% 27%, 50% 37%, 70% 42%, 55% 52%,
-        75% 57%, 60% 67%, 80% 72%, 65% 82%, 85% 87%, 70% 97%, 90% 100%,
-        10% 100%, 10% 0%
-      );
-      transform: rotate(5deg);
-    }
-
-    .fern-right-top {
-      top: 12%;
-      right: 15px;
-      background: repeating-linear-gradient(
-        135deg,
-        #9dd39d,
-        #9dd39d 8px,
-        transparent 8px,
-        transparent 18px
-      );
-      clip-path: polygon(
-        40% 0%, 50% 12%, 45% 22%, 60% 27%, 50% 37%, 70% 42%, 55% 52%,
-        75% 57%, 60% 67%, 80% 72%, 65% 82%, 85% 87%, 70% 97%, 90% 100%,
-        10% 100%, 10% 0%
-      );
-      transform: rotate(15deg);
-    }
-
-    .fern-right-bottom {
-      bottom: 18%;
-      right: 25px;
-      background: repeating-linear-gradient(
-        45deg,
-        #b2e0b2,
-        #b2e0b2 10px,
-        transparent 10px,
-        transparent 20px
-      );
-      clip-path: polygon(
-        30% 0%, 40% 10%, 35% 20%, 50% 25%, 40% 35%, 60% 40%, 45% 50%,
-        65% 55%, 50% 65%, 70% 70%, 55% 80%, 75% 85%, 60% 95%, 80% 100%,
-        0% 100%, 0% 0%
-      );
-      transform: rotate(-5deg);
-    }
-
-    /* MAIN contenu */
     main {
       animation: fadeInUp 1s ease-in forwards;
-      padding: 2rem 1rem;
-      max-width: 900px;
-      margin: 0 auto;
-      color: #2e7d32;
     }
 
     .location {
@@ -268,22 +93,19 @@
       color: #555;
     }
 
-    /* Animations */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    @keyframes fadeIn {
+      from { opacity: 0 }
+      to { opacity: 1 }
     }
 
-    /* Responsive */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     @media (max-width: 600px) {
       header h1 {
-        font-size: 2.4rem;
+        font-size: 2.3rem;
       }
       header p {
         font-size: 1.1rem;
@@ -294,59 +116,57 @@
       .location p {
         font-size: 1rem;
       }
-
-      /* Cacher les formes pour mobile */
-      header::before,
-      header::after,
-      .shape-1,
-      .shape-2,
-      .shape-3,
-      .shape-4,
-      .fern-left-top,
-      .fern-left-bottom,
-      .fern-right-top,
-      .fern-right-bottom {
-        display: none;
-      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Paris Éco-Tour</h1>
-    <p>Découvrez Paris autrement, à travers des balades éco-responsables et des initiatives durables qui font la ville plus verte chaque jour.</p>
 
-    <!-- Formes supplémentaires -->
-    <div class="shape-1"></div>
-    <div class="shape-2"></div>
-    <div class="shape-3"></div>
-    <div class="shape-4"></div>
+<header>
+  <h1>🌱 Paris Éco-Tour</h1>
+  <p>
+    Découvrez les perles écoresponsables de Paris. De lieux insolites à des adresses engagées, vivez une ville plus verte et plus humaine. Restaurants végétaux, marchés bio, ateliers DIY, hôtels durables... Tout y est pour une exploration consciente et joyeuse.
+  </p>
+</header>
 
-    <!-- Fougères décoratives -->
-    <div class="fern-left-top"></div>
-    <div class="fern-left-bottom"></div>
-    <div class="fern-right-top"></div>
-    <div class="fern-right-bottom"></div>
-  </header>
+<main>
 
-  <main>
-    <section class="location">
-      <h2>Parc des Buttes-Chaumont</h2>
-      <p>Un havre de paix en plein cœur de Paris, parfait pour une balade au milieu des arbres et des cascades artificielles.</p>
-      <p class="address">Adresse : 1 Rue Botzaris, 75019 Paris</p>
-    </section>
+<section class="location">
+  <h2>La Recyclerie</h2>
+  <p>Ancienne gare devenue repaire écolo avec café solidaire, potager urbain et ateliers pour tou·te·s. Idéal pour se ressourcer !</p>
+  <div class="address">📍 83 Boulevard Ornano, 75018 Paris</div>
+</section>
 
-    <section class="location">
-      <h2>Jardin des Plantes</h2>
-      <p>Explorez la richesse botanique de Paris dans ce jardin historique avec ses serres et ses nombreuses espèces végétales.</p>
-      <p class="address">Adresse : 57 Rue Cuvier, 75005 Paris</p>
-    </section>
+<section class="location">
+  <h2>Marché Raspail</h2>
+  <p>Ambiance conviviale pour ce marché bio dominical. Fruits, légumes, pains et sourires garantis, le tout en circuit court.</p>
+  <div class="address">📍 Boulevard Raspail, 75006 Paris</div>
+</section>
 
-    <section class="location">
-      <h2>La Recyclerie</h2>
-      <p>Un café éco-responsable situé dans une ancienne gare, proposant ateliers et événements autour du recyclage et de l’écologie.</p>
-      <p class="address">Adresse : 83 Boulevard Ornano, 75018 Paris</p>
-    </section>
-  </main>
+<section class="location">
+  <h2>La Maison du Zéro Déchet</h2>
+  <p>Le QG du mode de vie zéro gaspillage. Ateliers, conseils pratiques et boutique engagée pour un quotidien plus responsable.</p>
+  <div class="address">📍 1 Rue Charles Nodier, 75018 Paris</div>
+</section>
+
+<section class="location">
+  <h2>Solar Hôtel</h2>
+  <p>L’hébergement éthique et abordable par excellence. Jardin partagé, petit dej’ bio, tri sélectif et bonne humeur.</p>
+  <div class="address">📍 22 Rue Boulard, 75014 Paris</div>
+</section>
+
+<section class="location">
+  <h2>L'Atelier Régalien</h2>
+  <p>Des ateliers de cuisine 100% locaux et de saison avec des chefs passionnés. On apprend, on cuisine, on se régale !</p>
+  <div class="address">📍 9 Rue Jacques Louvel-Tessier, 75010 Paris</div>
+</section>
+
+<section class="location">
+  <h2>Le Potager de Charlotte</h2>
+  <p>Un resto végétal qui donne le sourire. Cuisine créative, produits frais et déco apaisante pour tous les curieux du goût.</p>
+  <div class="address">📍 12 Rue de la Tour d'Auvergne, 75009 Paris</div>
+</section>
+
+</main>
+
 </body>
 </html>
