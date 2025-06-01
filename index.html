@@ -43,6 +43,91 @@
       background-size: 80px 80px, 60px 60px;
     }
 
+    /* Fougères stylisées multipoints autour du header */
+    .fern-left-top,
+    .fern-left-bottom,
+    .fern-right-top,
+    .fern-right-bottom {
+      position: absolute;
+      width: 140px;
+      height: 220px;
+      background: repeating-linear-gradient(
+        45deg,
+        #b2e0b2,
+        #b2e0b2 10px,
+        transparent 10px,
+        transparent 20px
+      );
+      clip-path: polygon(
+        30% 0%, 40% 10%, 35% 20%, 50% 25%, 40% 35%, 60% 40%, 45% 50%,
+        65% 55%, 50% 65%, 70% 70%, 55% 80%, 75% 85%, 60% 95%, 80% 100%,
+        0% 100%, 0% 0%
+      );
+      opacity: 0.5;
+      transform-origin: center;
+      z-index: 2;
+    }
+
+    .fern-left-top {
+      top: 10%;
+      left: 10px;
+      transform: rotate(-15deg);
+    }
+
+    .fern-left-bottom {
+      bottom: 10%;
+      left: 25px;
+      background: repeating-linear-gradient(
+        135deg,
+        #a6d5a6,
+        #a6d5a6 8px,
+        transparent 8px,
+        transparent 18px
+      );
+      clip-path: polygon(
+        40% 0%, 50% 12%, 45% 22%, 60% 27%, 50% 37%, 70% 42%, 55% 52%,
+        75% 57%, 60% 67%, 80% 72%, 65% 82%, 85% 87%, 70% 97%, 90% 100%,
+        10% 100%, 10% 0%
+      );
+      transform: rotate(5deg);
+    }
+
+    .fern-right-top {
+      top: 12%;
+      right: 20px;
+      background: repeating-linear-gradient(
+        135deg,
+        #9dd39d,
+        #9dd39d 8px,
+        transparent 8px,
+        transparent 18px
+      );
+      clip-path: polygon(
+        40% 0%, 50% 12%, 45% 22%, 60% 27%, 50% 37%, 70% 42%, 55% 52%,
+        75% 57%, 60% 67%, 80% 72%, 65% 82%, 85% 87%, 70% 97%, 90% 100%,
+        10% 100%, 10% 0%
+      );
+      transform: rotate(15deg);
+    }
+
+    .fern-right-bottom {
+      bottom: 18%;
+      right: 15px;
+      background: repeating-linear-gradient(
+        45deg,
+        #b2e0b2,
+        #b2e0b2 10px,
+        transparent 10px,
+        transparent 20px
+      );
+      clip-path: polygon(
+        30% 0%, 40% 10%, 35% 20%, 50% 25%, 40% 35%, 60% 40%, 45% 50%,
+        65% 55%, 50% 65%, 70% 70%, 55% 80%, 75% 85%, 60% 95%, 80% 100%,
+        0% 100%, 0% 0%
+      );
+      transform: rotate(-5deg);
+    }
+
     header h1 {
       font-size: 3.2rem;
       margin-bottom: 1.2rem;
@@ -55,6 +140,8 @@
       max-width: 700px;
       line-height: 1.6;
       padding: 0 1rem;
+      position: relative;
+      z-index: 3; /* devant les fougères */
     }
 
     main {
@@ -116,6 +203,14 @@
       .location p {
         font-size: 1rem;
       }
+
+      /* Cacher les fougères sur mobile */
+      .fern-left-top,
+      .fern-left-bottom,
+      .fern-right-top,
+      .fern-right-bottom {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -126,6 +221,12 @@
   <p>
     Découvrez les perles écoresponsables de Paris. De lieux insolites à des adresses engagées, vivez une ville plus verte et plus humaine. Restaurants végétaux, marchés bio, ateliers DIY, hôtels durables... Tout y est pour une exploration consciente et joyeuse.
   </p>
+
+  <!-- Fougères décoratives -->
+  <div class="fern-left-top"></div>
+  <div class="fern-left-bottom"></div>
+  <div class="fern-right-top"></div>
+  <div class="fern-right-bottom"></div>
 </header>
 
 <main>
