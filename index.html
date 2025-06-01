@@ -11,165 +11,201 @@
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       font-family: 'Poppins', sans-serif;
       background-color: #f2fefb;
       color: #2e7d32;
       overflow-x: hidden;
     }
-
     header {
-      position: relative;
+      background: linear-gradient(135deg, #e1f8f0 0%, #f9fefc 100%);
       height: 100vh;
-      background: #e6f8f0;
+      width: 100vw;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
       text-align: center;
-      padding: 2rem;
-      overflow: hidden;
-    }
-
-    .header-box {
+      padding: 2rem 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      animation: fadeIn 1s ease-in;
       position: relative;
-      background-color: #f0fff8;
-      padding: 2rem 3rem;
-      border: 2px solid #a8d5c3;
-      border-radius: 1rem;
-      z-index: 5;
+      z-index: 1;
+      overflow: visible;
+    }
+    header h1,
+    header p {
+      position: relative;
+      z-index: 10;
+      max-width: 700px;
+    }
+    header h1 {
+      font-size: 3.2rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.1;
+    }
+    header p {
+      font-size: 1.3rem;
+      color: #333;
+      line-height: 1.6;
+      padding: 0 1rem;
     }
 
-    .header-box h1 {
-      font-size: 3.5rem;
-      color: #2e7d32;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      text-shadow: 2px 2px #fff;
-    }
-
-    .header-box p {
-      font-size: 1.2rem;
-      color: #4b604e;
-    }
-
-    .leaf, .circle, .stripe {
+    .decorative-shape {
       position: absolute;
+      border-radius: 50%;
       opacity: 0.15;
+      z-index: 2;
+    }
+    .circle-1 {
+      width: 200px;
+      height: 200px;
+      background-color: #b2e2d6;
+      top: 10%;
+      left: 10%;
+    }
+    .circle-2 {
+      width: 150px;
+      height: 150px;
+      background-color: #d0f0e0;
+      top: 60%;
+      right: 15%;
+    }
+    .line-curve {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border: 2px solid #a4d4c3;
+      border-radius: 40% 60% 30% 70% / 60% 30% 70% 40%;
+      top: 40%;
+      left: 40%;
+      opacity: 0.2;
+      transform: rotate(30deg);
       z-index: 1;
     }
-
-    .leaf {
-      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Leaf_icon.svg/64px-Leaf_icon.svg.png');
-      background-size: cover;
-      width: 80px;
-      height: 80px;
+    .flower {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/72/Flower_icon.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.25;
+      z-index: 3;
     }
-
-    .leaf-1 { top: 10%; left: 5%; transform: rotate(20deg); }
-    .leaf-2 { bottom: 10%; right: 10%; transform: rotate(-15deg); }
-
-    .circle {
-      border-radius: 50%;
-      background-color: #b2e2d6;
+    .flower-1 {
+      top: 20%;
+      left: 70%;
     }
-
-    .circle-1 { width: 150px; height: 150px; top: 20%; right: 20%; }
-    .circle-2 { width: 100px; height: 100px; bottom: 15%; left: 15%; }
-
-    .stripe {
-      width: 120px;
-      height: 120px;
-      background-image: repeating-linear-gradient(
-        45deg,
-        #a4d4c3,
-        #a4d4c3 4px,
-        transparent 4px,
-        transparent 8px
-      );
-      border-radius: 50%;
+    .flower-2 {
+      bottom: 10%;
+      right: 20%;
     }
-
-    .stripe-1 { top: 5%; right: 5%; }
-    .stripe-2 { bottom: 5%; left: 10%; }
 
     @media (max-width: 600px) {
-      .leaf, .circle, .stripe {
+      .decorative-shape, .flower {
         display: none;
       }
-      .header-box h1 {
-        font-size: 2.2rem;
+      header h1 {
+        font-size: 2.3rem;
       }
-      .header-box p {
-        font-size: 1rem;
+      header p {
+        font-size: 1.1rem;
       }
     }
 
     main {
-      padding: 4rem 1rem;
+      animation: fadeInUp 1s ease-in forwards;
     }
-
     .location {
-      margin-bottom: 3rem;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 4rem 1rem;
+      border-bottom: 2px solid #cce8dd;
+      transition: background-color 0.3s ease;
     }
-
+    .location:hover {
+      background-color: #e5f7f0;
+    }
     .location h2 {
-      font-size: 2rem;
+      font-size: 2.2rem;
       color: #1b5e20;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
     }
-
     .location p {
       font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto;
-      color: #444;
+      max-width: 700px;
+      text-align: center;
+      color: #333;
     }
-
     .address {
       font-style: italic;
+      margin-top: 1rem;
       color: #555;
-      margin-top: 0.5rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0 }
+      to { opacity: 1 }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-
 <header>
-  <div class="header-box">
-    <h1>🌱 Paris Éco-Tour</h1>
-    <p>Découvrez les perles écoresponsables de Paris. Une ville plus verte et plus humaine vous attend.</p>
-  </div>
+  <h1>🌱 Paris Éco-Tour</h1>
+  <p>
+    Découvrez les perles écoresponsables de Paris. De lieux insolites à des adresses engagées, vivez une ville plus verte et plus humaine. Restaurants végétaux, marchés bio, ateliers DIY, hôtels durables... Tout y est pour une exploration consciente et joyeuse.
+  </p>
 
-  <!-- décorations -->
-  <div class="leaf leaf-1"></div>
-  <div class="leaf leaf-2"></div>
-  <div class="circle circle-1"></div>
-  <div class="circle circle-2"></div>
-  <div class="stripe stripe-1"></div>
-  <div class="stripe stripe-2"></div>
+  <!-- Formes décoratives -->
+  <div class="decorative-shape circle-1"></div>
+  <div class="decorative-shape circle-2"></div>
+  <div class="decorative-shape line-curve"></div>
+  <div class="flower flower-1"></div>
+  <div class="flower flower-2"></div>
 </header>
 
 <main>
-  <section class="location">
-    <h2>La Recyclerie</h2>
-    <p>Ancienne gare devenue repaire écolo avec café solidaire, potager urbain et ateliers pour tou·te·s.</p>
-    <div class="address">📍 83 Boulevard Ornano, 75018 Paris</div>
-  </section>
+<section class="location">
+  <h2>La Recyclerie</h2>
+  <p>Ancienne gare devenue repaire écolo avec café solidaire, potager urbain et ateliers pour tou·te·s. Idéal pour se ressourcer !</p>
+  <div class="address">📍 83 Boulevard Ornano, 75018 Paris</div>
+</section>
 
-  <section class="location">
-    <h2>Marché Raspail</h2>
-    <p>Ambiance conviviale pour ce marché bio dominical. Fruits, légumes, pains et sourires garantis.</p>
-    <div class="address">📍 Boulevard Raspail, 75006 Paris</div>
-  </section>
+<section class="location">
+  <h2>Marché Raspail</h2>
+  <p>Ambiance conviviale pour ce marché bio dominical. Fruits, légumes, pains et sourires garantis, le tout en circuit court.</p>
+  <div class="address">📍 Boulevard Raspail, 75006 Paris</div>
+</section>
 
-  <section class="location">
-    <h2>La Maison du Zéro Déchet</h2>
-    <p>Le QG du mode de vie zéro gaspillage. Ateliers, conseils pratiques et boutique engagée.</p>
-    <div class="address">📍 1 Rue Charles Nodier, 75018 Paris</div>
-  </section>
+<section class="location">
+  <h2>La Maison du Zéro Déchet</h2>
+  <p>Le QG du mode de vie zéro gaspillage. Ateliers, conseils pratiques et boutique engagée pour un quotidien plus responsable.</p>
+  <div class="address">📍 1 Rue Charles Nodier, 75018 Paris</div>
+</section>
+
+<section class="location">
+  <h2>Solar Hôtel</h2>
+  <p>L’hébergement éthique et abordable par excellence. Jardin partagé, petit dej’ bio, tri sélectif et bonne humeur.</p>
+  <div class="address">📍 22 Rue Boulard, 75014 Paris</div>
+</section>
+
+<section class="location">
+  <h2>L'Atelier Régalien</h2>
+  <p>Des ateliers de cuisine 100% locaux et de saison avec des chefs passionnés. On apprend, on cuisine, on se régale !</p>
+  <div class="address">📍 9 Rue Jacques Louvel-Tessier, 75010 Paris</div>
+</section>
+
+<section class="location">
+  <h2>Le Potager de Charlotte</h2>
+  <p>Un resto végétal qui donne le sourire. Cuisine créative, produits frais et déco apaisante pour tous les curieux du goût.</p>
+  <div class="address">📍 12 Rue de la Tour d'Auvergne, 75009 Paris</div>
+</section>
 </main>
-
 </body>
 </html>
