@@ -2,10 +2,11 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Paris Éco-Tour</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
   <style>
+    /* Reset */
     * {
       margin: 0;
       padding: 0;
@@ -19,46 +20,122 @@
       overflow-x: hidden;
     }
 
+    /* HEADER avec décor géométrique et fougères */
     header {
-      background-color: #d0f0e0;
+      position: relative;
       height: 100vh;
       width: 100vw;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-align: center;
       padding: 2rem 1rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      animation: fadeIn 1s ease-in;
-      position: relative; /* pour positionner les décorations */
-
-      /* décorations feuilles */
-      background-image:
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="%2348a14a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C15 5 18 8 18 11s-3 6-6 9-6-3-6-6 3-9 6-12z"/></svg>'),
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="%232e7d32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2C11 5 14 8 14 11s-3 6-6 9-6-3-6-6 3-9 6-12z"/></svg>');
-
-      background-repeat: no-repeat, no-repeat;
-      background-position: top left 20px, bottom right 30px;
-      background-size: 80px 80px, 60px 60px;
+      background-color: #d0f0e0;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      color: #2e7d32;
     }
 
     header h1 {
       font-size: 3.2rem;
-      margin-bottom: 1.2rem;
-      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      z-index: 10;
+      position: relative;
     }
 
     header p {
       font-size: 1.3rem;
-      color: #333;
       max-width: 700px;
       line-height: 1.6;
+      color: #2b4d25;
+      z-index: 10;
+      position: relative;
       padding: 0 1rem;
+    }
+
+    /* Formes géométriques */
+    header::before {
+      content: '';
+      position: absolute;
+      top: 15%;
+      left: 5%;
+      width: 180px;
+      height: 180px;
+      background: #a3d9a5;
+      clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 0 100%);
+      opacity: 0.45;
+      transform: rotate(15deg);
+      z-index: 1;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 10%;
+      right: 8%;
+      width: 140px;
+      height: 140px;
+      background: #8acc94;
+      border-radius: 50%;
+      opacity: 0.4;
+      z-index: 1;
+      transform: rotate(-10deg);
+    }
+
+    /* Fougère stylisée à gauche */
+    .fern-left {
+      position: absolute;
+      top: 25%;
+      left: 15px;
+      width: 100px;
+      height: 180px;
+      background: repeating-linear-gradient(
+        45deg,
+        #b2e0b2,
+        #b2e0b2 10px,
+        transparent 10px,
+        transparent 20px
+      );
+      clip-path: polygon(
+        30% 0%, 40% 10%, 35% 20%, 50% 25%, 40% 35%, 60% 40%, 45% 50%,
+        65% 55%, 50% 65%, 70% 70%, 55% 80%, 75% 85%, 60% 95%, 80% 100%,
+        0% 100%, 0% 0%
+      );
+      opacity: 0.5;
+      transform: rotate(-15deg);
+      z-index: 2;
+    }
+
+    /* Fougère stylisée à droite */
+    .fern-right {
+      position: absolute;
+      bottom: 20%;
+      right: 30px;
+      width: 120px;
+      height: 200px;
+      background: repeating-linear-gradient(
+        135deg,
+        #9dd39d,
+        #9dd39d 8px,
+        transparent 8px,
+        transparent 18px
+      );
+      clip-path: polygon(
+        40% 0%, 50% 12%, 45% 22%, 60% 27%, 50% 37%, 70% 42%, 55% 52%,
+        75% 57%, 60% 67%, 80% 72%, 65% 82%, 85% 87%, 70% 97%, 90% 100%,
+        10% 100%, 10% 0%
+      );
+      opacity: 0.45;
+      transform: rotate(10deg);
+      z-index: 2;
     }
 
     main {
       animation: fadeInUp 1s ease-in forwards;
+      padding: 2rem 1rem;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     .location {
@@ -93,14 +170,16 @@
       color: #555;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0 }
-      to { opacity: 1 }
-    }
-
+    /* Animations */
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @media (max-width: 600px) {
@@ -116,57 +195,65 @@
       .location p {
         font-size: 1rem;
       }
+
+      /* Ajustements déco sur petit écran */
+      .fern-left,
+      .fern-right {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>🌱 Paris Éco-Tour</h1>
-  <p>
-    Découvrez les perles écoresponsables de Paris. De lieux insolites à des adresses engagées, vivez une ville plus verte et plus humaine. Restaurants végétaux, marchés bio, ateliers DIY, hôtels durables... Tout y est pour une exploration consciente et joyeuse.
-  </p>
-</header>
+  <header>
+    <h1>🌱 Paris Éco-Tour</h1>
+    <p>
+      Découvrez les perles écoresponsables de Paris. De lieux insolites à des adresses engagées, vivez une ville plus verte et plus humaine.
+      Restaurants végétaux, marchés bio, ateliers DIY, hôtels durables... Tout y est pour une exploration consciente et joyeuse.
+    </p>
 
-<main>
+    <!-- Décos fougères -->
+    <div class="fern-left"></div>
+    <div class="fern-right"></div>
+  </header>
 
-<section class="location">
-  <h2>La Recyclerie</h2>
-  <p>Ancienne gare devenue repaire écolo avec café solidaire, potager urbain et ateliers pour tou·te·s. Idéal pour se ressourcer !</p>
-  <div class="address">📍 83 Boulevard Ornano, 75018 Paris</div>
-</section>
+  <main>
+    <section class="location">
+      <h2>La Recyclerie</h2>
+      <p>Ancienne gare devenue repaire écolo avec café solidaire, potager urbain et ateliers pour tou·te·s. Idéal pour se ressourcer !</p>
+      <div class="address">📍 83 Boulevard Ornano, 75018 Paris</div>
+    </section>
 
-<section class="location">
-  <h2>Marché Raspail</h2>
-  <p>Ambiance conviviale pour ce marché bio dominical. Fruits, légumes, pains et sourires garantis, le tout en circuit court.</p>
-  <div class="address">📍 Boulevard Raspail, 75006 Paris</div>
-</section>
+    <section class="location">
+      <h2>Marché Raspail</h2>
+      <p>Ambiance conviviale pour ce marché bio dominical. Fruits, légumes, pains et sourires garantis, le tout en circuit court.</p>
+      <div class="address">📍 Boulevard Raspail, 75006 Paris</div>
+    </section>
 
-<section class="location">
-  <h2>La Maison du Zéro Déchet</h2>
-  <p>Le QG du mode de vie zéro gaspillage. Ateliers, conseils pratiques et boutique engagée pour un quotidien plus responsable.</p>
-  <div class="address">📍 1 Rue Charles Nodier, 75018 Paris</div>
-</section>
+    <section class="location">
+      <h2>La Maison du Zéro Déchet</h2>
+      <p>Le QG du mode de vie zéro gaspillage. Ateliers, conseils pratiques et boutique engagée pour un quotidien plus responsable.</p>
+      <div class="address">📍 1 Rue Charles Nodier, 75018 Paris</div>
+    </section>
 
-<section class="location">
-  <h2>Solar Hôtel</h2>
-  <p>L’hébergement éthique et abordable par excellence. Jardin partagé, petit dej’ bio, tri sélectif et bonne humeur.</p>
-  <div class="address">📍 22 Rue Boulard, 75014 Paris</div>
-</section>
+    <section class="location">
+      <h2>Solar Hôtel</h2>
+      <p>L’hébergement éthique et abordable par excellence. Jardin partagé, petit dej’ bio, tri sélectif et bonne humeur.</p>
+      <div class="address">📍 22 Rue Boulard, 75014 Paris</div>
+    </section>
 
-<section class="location">
-  <h2>L'Atelier Régalien</h2>
-  <p>Des ateliers de cuisine 100% locaux et de saison avec des chefs passionnés. On apprend, on cuisine, on se régale !</p>
-  <div class="address">📍 9 Rue Jacques Louvel-Tessier, 75010 Paris</div>
-</section>
+    <section class="location">
+      <h2>L'Atelier Régalien</h2>
+      <p>Des ateliers de cuisine 100% locaux et de saison avec des chefs passionnés. On apprend, on cuisine, on se régale !</p>
+      <div class="address">📍 9 Rue Jacques Louvel-Tessier, 75010 Paris</div>
+    </section>
 
-<section class="location">
-  <h2>Le Potager de Charlotte</h2>
-  <p>Un resto végétal qui donne le sourire. Cuisine créative, produits frais et déco apaisante pour tous les curieux du goût.</p>
-  <div class="address">📍 12 Rue de la Tour d'Auvergne, 75009 Paris</div>
-</section>
-
-</main>
-
+    <section class="location">
+      <h2>Le Potager de Charlotte</h2>
+      <p>Un resto végétal qui donne le sourire. Cuisine créative, produits frais et déco apaisante pour tous les curieux du goût.</p>
+      <div class="address">📍 12 Rue de la Tour d'Auvergne, 75009 Paris</div>
+    </section>
+  </main>
 </body>
 </html>
