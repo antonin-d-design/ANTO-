@@ -21,23 +21,34 @@
 
     header {
       background-color: #d0f0e0;
+      /* Prend tout l'écran */
+      height: 100vh;
+      width: 100vw;
+
+      /* Flexbox centré vertical & horizontal */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      padding: 4rem 1rem 3rem;
+      padding: 2rem 1rem;
+
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       animation: fadeIn 1s ease-in;
     }
 
     header h1 {
       font-size: 3.2rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.1;
     }
 
     header p {
       font-size: 1.3rem;
       color: #333;
-      max-width: 800px;
-      margin: 0 auto;
+      max-width: 700px;
       line-height: 1.6;
+      padding: 0 1rem;
     }
 
     main {
@@ -87,9 +98,13 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* Responsive */
     @media (max-width: 600px) {
       header h1 {
         font-size: 2.3rem;
+      }
+      header p {
+        font-size: 1.1rem;
       }
       .location h2 {
         font-size: 1.5rem;
