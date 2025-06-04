@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="google-site-verification" content="_-Bd1VmknTYCuIeRogWrKpmvgmSKTZV8ygktHXjFXUo" />
-  <title>Paris Éco-Tour | Tourisme durable, bio, local et écoresponsable à Paris</title>
-  <meta name="description" content="Découvrez le tourisme durable à Paris : lieux écoresponsables, restaurants végétariens, marchés bio, activités zéro déchet, écotourisme et hébergements écologiques." />
-  <meta name="keywords" content="tourisme durable Paris, bio Paris, écotourisme Paris, écoresponsable, local, zéro déchet, restaurant végétarien, hébergement écologique, Paris éco-tour, activités durables" />
+  <title>Paris Éco-Tour | Tourisme durable à Paris</title>
+  <meta name="description" content="Découvrez le tourisme durable à Paris : lieux écoresponsables, restaurants végétariens, marchés bio, activités zéro déchet et hébergements écologiques." />
+  <meta name="keywords" content="tourisme durable Paris, bio Paris, écotourisme, restaurant végétarien, hébergement écologique, zéro déchet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     * {
@@ -24,241 +24,206 @@
       overflow-x: hidden;
     }
 
-    /* === MENU FIXE === */
+    /* ----- BARRE DE NAVIGATION ----- */
     nav {
       position: fixed;
       top: 0;
-      left: 0;
       width: 100%;
-      background-color: #e0f4ec;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      z-index: 999;
-    }
-    nav ul {
+      background-color: #c8f3e3;
       display: flex;
       justify-content: center;
       gap: 2rem;
-      list-style: none;
-      padding: 1rem;
+      padding: 1.2rem 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
     nav a {
-      text-decoration: none;
-      color: #1b5e20;
+      color: #145c3c;
       font-weight: bold;
+      font-size: 1.2rem;
+      text-decoration: none;
       transition: color 0.3s;
     }
     nav a:hover {
-      color: #388e3c;
+      color: #0e3925;
     }
 
+    /* ----- EN-TÊTE ----- */
     header {
-      margin-top: 80px; /* espace pour menu fixe */
       background: linear-gradient(135deg, #e1f8f0 0%, #f9fefc 100%);
       height: 100vh;
-      width: 100vw;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 2rem 1rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      animation: fadeIn 1s ease-in;
-      position: relative;
+      padding: 4rem 1rem 2rem;
     }
-
     header h1 {
-      font-size: 4rem;
-      margin-bottom: 1.2rem;
+      font-size: 3.8rem;
+      margin-bottom: 1.5rem;
       line-height: 1.1;
-      max-width: 700px;
     }
     header p {
       font-size: 1.6rem;
       color: #333;
-      line-height: 1.6;
       max-width: 700px;
     }
 
-    .decorative-shape {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.15;
-      z-index: 2;
+    /* ----- TITRES DE CATÉGORIES ----- */
+    .category-title {
+      font-size: 2.8rem;
+      margin-top: 4rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: #1b5e20;
+      text-transform: uppercase;
+      position: relative;
     }
-    .circle-1 {
-      width: 200px;
-      height: 200px;
-      background-color: #b2e2d6;
-      top: 10%;
-      left: 10%;
-    }
-    .circle-2 {
-      width: 150px;
-      height: 150px;
-      background-color: #d0f0e0;
-      top: 60%;
-      right: 15%;
-    }
-    .line-curve {
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      border: 2px solid #a4d4c3;
-      border-radius: 40% 60% 30% 70% / 60% 30% 70% 40%;
-      top: 40%;
-      left: 40%;
-      opacity: 0.2;
-      transform: rotate(30deg);
-      z-index: 1;
-    }
-    .flower {
-      position: absolute;
-      width: 60px;
-      height: 60px;
-      background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/72/Flower_icon.svg');
-      background-size: contain;
-      background-repeat: no-repeat;
-      opacity: 0.25;
-      z-index: 3;
-    }
-    .flower-1 {
-      top: 20%;
-      left: 70%;
-    }
-    .flower-2 {
-      bottom: 10%;
-      right: 20%;
+    .category-title::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      background-color: #1b5e20;
+      margin: 0.5rem auto 0;
+      border-radius: 4px;
     }
 
-    @media (max-width: 600px) {
-      .decorative-shape, .flower {
-        display: none;
+    /* ----- SECTIONS ----- */
+    .location {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem 1rem;
+      border-bottom: 2px solid #cce8dd;
+      background-color: #ffffff;
+    }
+    .location.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .location h2 {
+      font-size: 2rem;
+      color: #2e7d32;
+      margin-bottom: 0.8rem;
+    }
+    .location p {
+      font-size: 1.1rem;
+      color: #444;
+      text-align: center;
+      max-width: 700px;
+    }
+    .address {
+      margin-top: 0.6rem;
+      font-style: italic;
+      color: #666;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
       }
       header h1 {
         font-size: 2.6rem;
       }
       header p {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
       }
-      nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
+      .category-title {
+        font-size: 2rem;
       }
-    }
-
-    main {
-      animation: fadeInUp 1s ease-in forwards;
-      padding-bottom: 4rem;
-    }
-    section {
-      padding: 4rem 1rem;
-      border-bottom: 2px solid #cce8dd;
-      text-align: center;
-    }
-    section h2 {
-      font-size: 2.2rem;
-      color: #1b5e20;
-      margin-bottom: 1rem;
-    }
-    section p {
-      font-size: 1.1rem;
-      max-width: 700px;
-      margin: auto;
-      color: #333;
-    }
-    .address {
-      font-style: italic;
-      margin-top: 1rem;
-      color: #555;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0 }
-      to { opacity: 1 }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
 
-<!-- === MENU DE NAVIGATION FIXE === -->
+<!-- NAVIGATION -->
 <nav>
-  <ul>
-    <li><a href="#restaurants">Restaurants</a></li>
-    <li><a href="#magasins">Magasins</a></li>
-    <li><a href="#hotels">Hôtels</a></li>
-    <li><a href="#activites">Activités</a></li>
-  </ul>
+  <a href="#restaurants">Restaurants</a>
+  <a href="#magasins">Magasins</a>
+  <a href="#hotels">Hôtels</a>
+  <a href="#activites">Activités</a>
 </nav>
 
+<!-- EN-TÊTE -->
 <header>
   <h1>🌱 Paris Éco-Tour — Tourisme durable & écoresponsable</h1>
   <p>
     Découvrez les perles écoresponsables de Paris. Restaurants végétariens, marchés bio, ateliers zéro déchet, hébergements durables...  
-    Vivez une expérience de tourisme responsable, locale et engagée au cœur de la capitale verte.
+    Vivez une expérience de tourisme responsable, locale et engagée.
   </p>
-  <div class="decorative-shape circle-1"></div>
-  <div class="decorative-shape circle-2"></div>
-  <div class="decorative-shape line-curve"></div>
-  <div class="flower flower-1"></div>
-  <div class="flower flower-2"></div>
 </header>
 
+<!-- SECTIONS PAR CATÉGORIE -->
 <main>
-  <!-- === RESTAURANTS === -->
-  <section id="restaurants">
-    <h2>🍽️ Restaurants</h2>
-    <div class="location">
-      <h3>Le Potager de Charlotte</h3>
-      <p>Restaurant végétal créatif avec produits frais et bio. Une cuisine éthique dans une ambiance apaisante.</p>
-      <div class="address">📍 12 Rue de la Tour d'Auvergne, 75009 Paris</div>
-    </div>
+
+  <h2 class="category-title" id="restaurants">Restaurants</h2>
+
+  <section class="location">
+    <h2>Le Potager de Charlotte</h2>
+    <p>Restaurant végétal créatif avec produits frais et bio. Une cuisine éthique dans une ambiance apaisante.</p>
+    <div class="address">📍 12 Rue de la Tour d'Auvergne, 75009 Paris</div>
   </section>
 
-  <!-- === MAGASINS === -->
-  <section id="magasins">
-    <h2>🛒 Magasins / Marchés</h2>
-    <div class="location">
-      <h3>Marché Raspail</h3>
-      <p>Marché bio dominical incontournable. Produits locaux, fruits et légumes frais, pain artisanal, le tout en circuit court et éthique.</p>
-      <div class="address">📍 Boulevard Raspail, 75006 Paris</div>
-    </div>
+  <h2 class="category-title" id="magasins">Magasins</h2>
+
+  <section class="location">
+    <h2>Marché Raspail</h2>
+    <p>Marché bio dominical incontournable. Produits locaux, fruits et légumes frais, pain artisanal, le tout en circuit court.</p>
+    <div class="address">📍 Boulevard Raspail, 75006 Paris</div>
   </section>
 
-  <!-- === HÔTELS === -->
-  <section id="hotels">
-    <h2>🏨 Hôtels</h2>
-    <div class="location">
-      <h3>Solar Hôtel</h3>
-      <p>Hôtel écologique et abordable. Petit-déjeuner bio, tri des déchets, jardin partagé et hébergement durable à Paris.</p>
-      <div class="address">📍 22 Rue Boulard, 75014 Paris</div>
-    </div>
+  <h2 class="category-title" id="hotels">Hôtels</h2>
+
+  <section class="location">
+    <h2>Solar Hôtel</h2>
+    <p>Hôtel écologique et abordable. Petit-déjeuner bio, tri des déchets, jardin partagé et hébergement durable à Paris.</p>
+    <div class="address">📍 22 Rue Boulard, 75014 Paris</div>
   </section>
 
-  <!-- === ACTIVITÉS === -->
-  <section id="activites">
-    <h2>🎨 Activités</h2>
-    <div class="location">
-      <h3>La Recyclerie</h3>
-      <p>Ancienne gare devenue repaire écolo avec café solidaire, potager urbain et ateliers pour tou·te·s.</p>
-      <div class="address">📍 83 Boulevard Ornano, 75018 Paris</div>
-    </div>
-    <div class="location">
-      <h3>La Maison du Zéro Déchet</h3>
-      <p>Centre engagé pour un mode de vie sans gaspillage. Ateliers, conseils pratiques et boutique zéro déchet à Paris.</p>
-      <div class="address">📍 1 Rue Charles Nodier, 75018 Paris</div>
-    </div>
-    <div class="location">
-      <h3>L'Atelier Régalien</h3>
-      <p>Ateliers de cuisine avec des produits locaux, bio et de saison. Idéal pour une activité durable et gourmande.</p>
-      <div class="address">📍 9 Rue Jacques Louvel-Tessier, 75010 Paris</div>
-    </div>
+  <h2 class="category-title" id="activites">Activités</h2>
+
+  <section class="location">
+    <h2>La Recyclerie</h2>
+    <p>Ancienne gare devenue repaire écolo avec café solidaire, potager urbain et ateliers pour tous. Idéal pour se ressourcer à Paris.</p>
+    <div class="address">📍 83 Boulevard Ornano, 75018 Paris</div>
   </section>
+
+  <section class="location">
+    <h2>La Maison du Zéro Déchet</h2>
+    <p>Centre engagé pour un mode de vie sans gaspillage. Ateliers, conseils pratiques et boutique zéro déchet.</p>
+    <div class="address">📍 1 Rue Charles Nodier, 75018 Paris</div>
+  </section>
+
+  <section class="location">
+    <h2>L'Atelier Régalien</h2>
+    <p>Ateliers de cuisine avec des produits locaux, bio et de saison. Idéal pour une activité durable et gourmande.</p>
+    <div class="address">📍 9 Rue Jacques Louvel-Tessier, 75010 Paris</div>
+  </section>
+
 </main>
+
+<!-- SCRIPT ANIMATION -->
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.location').forEach(section => {
+    observer.observe(section);
+  });
+</script>
+
 </body>
 </html>
