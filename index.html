@@ -24,7 +24,6 @@
       overflow-x: hidden;
     }
 
-    /* ----- BARRE DE NAVIGATION ----- */
     nav {
       position: fixed;
       top: 0;
@@ -48,7 +47,6 @@
       color: #0e3925;
     }
 
-    /* ----- EN-TÊTE ----- */
     header {
       background: linear-gradient(135deg, #e1f8f0 0%, #f9fefc 100%);
       height: 100vh;
@@ -70,7 +68,6 @@
       max-width: 700px;
     }
 
-    /* ----- TITRES DE CATÉGORIES ----- */
     .category-title {
       font-size: 3rem;
       margin-top: 6rem;
@@ -91,7 +88,6 @@
       border-radius: 4px;
     }
 
-    /* ----- SECTIONS ----- */
     .location {
       opacity: 0;
       transform: translateY(40px);
@@ -133,7 +129,6 @@
       color: #1b5e20;
     }
 
-    /* RESPONSIVE */
     @media (max-width: 768px) {
       nav {
         flex-direction: column;
@@ -154,10 +149,6 @@
 </head>
 <body>
 
-<!-- ANCRE POUR FORCER LE HAUT DE PAGE -->
-<div id="top" style="position:absolute; top:0;"></div>
-
-<!-- NAVIGATION -->
 <nav>
   <a href="#restaurants">Restaurants</a>
   <a href="#magasins">Magasins</a>
@@ -165,7 +156,6 @@
   <a href="#activites">Activités</a>
 </nav>
 
-<!-- EN-TÊTE -->
 <header>
   <h1>🌱 Paris Éco-Tour — Tourisme durable & écoresponsable</h1>
   <p>
@@ -174,11 +164,8 @@
   </p>
 </header>
 
-<!-- SECTIONS PAR CATÉGORIE -->
 <main>
-
   <h2 class="category-title" id="restaurants">Restaurants</h2>
-
   <section class="location">
     <h2>Le Potager de Charlotte</h2>
     <p>Restaurant végétal créatif avec produits frais et bio. Une cuisine éthique dans une ambiance apaisante.</p>
@@ -186,7 +173,6 @@
   </section>
 
   <h2 class="category-title" id="magasins">Magasins</h2>
-
   <section class="location">
     <h2>Marché Raspail</h2>
     <p>Marché bio dominical incontournable. Produits locaux, fruits et légumes frais, pain artisanal, le tout en circuit court.</p>
@@ -194,7 +180,6 @@
   </section>
 
   <h2 class="category-title" id="hotels">Hôtels</h2>
-
   <section class="location">
     <h2>Solar Hôtel</h2>
     <p>Hôtel écologique et abordable. Petit-déjeuner bio, tri des déchets, jardin partagé et hébergement durable à Paris.</p>
@@ -202,7 +187,6 @@
   </section>
 
   <h2 class="category-title" id="activites">Activités</h2>
-
   <section class="location">
     <h2>La Recyclerie</h2>
     <p>Ancienne gare devenue repaire écolo avec café solidaire, potager urbain et ateliers pour tous. Idéal pour se ressourcer à Paris.</p>
@@ -220,11 +204,10 @@
     <p>Ateliers de cuisine avec des produits locaux, bio et de saison. Idéal pour une activité durable et gourmande.</p>
     <div class="address">📍 9 Rue Jacques Louvel-Tessier, 75010 Paris</div>
   </section>
-
 </main>
 
-<!-- SCRIPT ANIMATION -->
 <script>
+  // Pour l'animation des sections
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -237,11 +220,12 @@
     observer.observe(section);
   });
 
-  // Forcer le scroll en haut de la page au chargement si aucun hash
+  // Force le retour en haut même si un # est présent dans l'URL
   window.addEventListener("load", () => {
-    if (!window.location.hash) {
+    setTimeout(() => {
       window.scrollTo(0, 0);
-    }
+      history.replaceState(null, null, ' '); // Supprime le hash de l’URL sans recharger
+    }, 10);
   });
 </script>
 
