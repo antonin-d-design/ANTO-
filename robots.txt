@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://antonin-d-design.github.io/ANTO-/sitemap.xml
