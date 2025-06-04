@@ -154,6 +154,9 @@
 </head>
 <body>
 
+<!-- ANCRE POUR FORCER LE HAUT DE PAGE -->
+<div id="top" style="position:absolute; top:0;"></div>
+
 <!-- NAVIGATION -->
 <nav>
   <a href="#restaurants">Restaurants</a>
@@ -232,6 +235,13 @@
 
   document.querySelectorAll('.location').forEach(section => {
     observer.observe(section);
+  });
+
+  // Forcer le scroll en haut de la page au chargement si aucun hash
+  window.addEventListener("load", () => {
+    if (!window.location.hash) {
+      window.scrollTo(0, 0);
+    }
   });
 </script>
 
