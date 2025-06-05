@@ -123,6 +123,244 @@
       color: #1b5e20;
     }
 
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: #c8f3e3;
+      color: #145c3c;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+      }
+      header h1 {
+        font-size: 2.6rem;
+      }
+      header p {
+        font-size: 1.2rem;
+      }
+      .category-title {
+        font-size: 2.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#restaurants">Restaurants</a>
+  <a href="#magasins">Magasins</a>
+  <a href="#hotels">Hôtels</a>
+  <a href="#activites">Activités</a>
+  <a href="#a-propos">À propos</a>
+</nav>
+
+<header>
+  <h1>🌱 Paris Éco-Tour — Tourisme durable & écoresponsable</h1>
+  <p>
+    Découvrez les perles écoresponsables de Paris. Restaurants végétariens, marchés bio, ateliers zéro déchet, hébergements durables...  
+    Vivez une expérience de tourisme responsable, locale et engagée.
+  </p>
+</header>
+
+<!-- sections inchangées : restaurants, magasins, hôtels, activités, à propos -->
+
+<!-- ... tout le contenu précédent ... -->
+
+<footer>
+  <p>&copy; <span id="year"></span> Paris Éco-Tour. Tous droits réservés.</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.location').forEach(section => {
+    observer.observe(section);
+  });
+
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+      history.replaceState(null, null, ' ');
+    }, 10);
+
+    // Insère l’année actuelle dans le footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  });
+</script>
+
+</body>
+</html>
+✅ Ce que tu peux faire :
+
+Copier ce code tel quel dans ton fichier .html.
+
+Le footer sera toujours à jour chaque année sans que tu aies à modifier quoi que ce soit.
+
+Souhaites-tu que je t’aide à styliser davantage le footer (couleur, animation, icône...) ?
+
+A network error occurred. Please check your connection and try again. If this issue persists please contact us through our help center at help.openai.com.
+
+
+
+
+
+
+Vous avez dit :
+nan mais donne le moi en entier vaiment entier avec le restau et tout
+
+
+ChatGPT a dit :
+Éléments mémorisés mis à jour
+Bien sûr ! Voici le code HTML complet, avec le footer ajouté à la fin du body. Le texte "© [année] Paris Éco-Tour – Tous droits réservés" s’actualise automatiquement chaque année :
+
+html
+Copier
+Modifier
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="google-site-verification" content="_-Bd1VmknTYCuIeRogWrKpmvgmSKTZV8ygktHXjFXUo" />
+  <title>Paris Éco-Tour | Tourisme durable à Paris</title>
+  <meta name="description" content="Découvrez le tourisme durable à Paris : lieux écoresponsables, restaurants végétariens, marchés bio, activités zéro déchet et hébergements écologiques." />
+  <meta name="keywords" content="tourisme durable Paris, bio Paris, écotourisme, restaurant végétarien, hébergement écologique, zéro déchet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f2fefb;
+      color: #2e7d32;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #c8f3e3;
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      padding: 1.8rem 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    nav a {
+      color: #145c3c;
+      font-weight: bold;
+      font-size: 1.3rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #0e3925;
+    }
+
+    header {
+      background: linear-gradient(135deg, #e1f8f0 0%, #f9fefc 100%);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 6rem 1rem 2rem;
+    }
+    header h1 {
+      font-size: 3.8rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+    header p {
+      font-size: 1.6rem;
+      color: #333;
+      max-width: 700px;
+    }
+
+    .category-title {
+      font-size: 3rem;
+      margin-top: 6rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: #1b5e20;
+      text-transform: uppercase;
+      position: relative;
+      scroll-margin-top: 120px;
+    }
+    .category-title::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      background-color: #1b5e20;
+      margin: 0.5rem auto 0;
+      border-radius: 4px;
+    }
+
+    .location {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem 1rem;
+      border-bottom: 2px solid #cce8dd;
+      background-color: #ffffff;
+      border-radius: 12px;
+      margin: 2rem auto;
+      max-width: 900px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+    .location.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .location h2 {
+      font-size: 2rem;
+      color: #2e7d32;
+      margin-bottom: 0.8rem;
+    }
+    .location p {
+      font-size: 1.1rem;
+      color: #444;
+      text-align: center;
+      max-width: 700px;
+    }
+    .address {
+      margin-top: 0.6rem;
+      font-style: italic;
+      color: #666;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    .address:hover {
+      transform: scale(1.05);
+      color: #1b5e20;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: #c8f3e3;
+      color: #145c3c;
+      font-size: 1rem;
+      margin-top: 4rem;
+    }
+
     @media (max-width: 768px) {
       nav {
         flex-direction: column;
@@ -262,34 +500,36 @@
   <div class="address">📍 8 Rue Jeanne d'Arc, 75013 Paris</div>
 </section>
 
-  <!-- À propos -->
-  <h2 class="category-title" id="a-propos">À propos</h2>
-  <section class="location">
-    <h2>Notre mission</h2>
-    <p>
-      Paris Éco-Tour est une initiative indépendante née de l’envie de valoriser les lieux engagés dans la transition écologique à Paris.
-      Nous référençons gratuitement les adresses qui partagent des valeurs d’écoresponsabilité : alimentation végétale, zéro déchet, économie circulaire, tourisme durable…
-    </p>
-    <p>
-      Ce site est destiné à tous ceux qui souhaitent découvrir Paris autrement, de façon respectueuse de l’environnement, des humains et du vivant.
-    </p>
-  </section>
-  <section class="location">
-    <h2>Pourquoi ce projet ?</h2>
-    <p>
-      Face aux enjeux climatiques et sociaux, il nous paraît essentiel de mettre en lumière les acteurs locaux qui s'engagent concrètement pour un avenir plus durable.
-      Notre objectif est de faciliter leur visibilité et de permettre aux citoyens et touristes de faire des choix éclairés et responsables.
-    </p>
-  </section>
-  <section class="location">
-    <h2>Transparence et engagement</h2>
-    <p>
-      Ce site ne dépend d’aucun groupe commercial. Les informations sont sélectionnées avec soin et nous privilégions toujours la transparence, la cohérence écologique et l’éthique.
-      Si vous êtes un commerce engagé et souhaitez apparaître ou bénéficier d’un encadré publicitaire, contactez-nous.
-    </p>
-    <div class="address">📩 Contact : paris.ecotour@gmail.com</div>
-  </section>
-</main>
+<h2 class="category-title" id="a-propos">À propos</h2>
+<section class="location">
+  <h2>Notre mission</h2>
+  <p>
+    Paris Éco-Tour est une initiative indépendante née de l’envie de valoriser les lieux engagés dans la transition écologique à Paris.
+    Nous référençons gratuitement les adresses qui partagent des valeurs d’écoresponsabilité : alimentation végétale, zéro déchet, économie circulaire, tourisme durable…
+  </p>
+  <p>
+    Ce site est destiné à tous ceux qui souhaitent découvrir Paris autrement, de façon respectueuse de l’environnement, des humains et du vivant.
+  </p>
+</section>
+<section class="location">
+  <h2>Pourquoi ce projet ?</h2>
+  <p>
+    Face aux enjeux climatiques et sociaux, il nous paraît essentiel de mettre en lumière les acteurs locaux qui s'engagent concrètement pour un avenir plus durable.
+    Notre objectif est de faciliter leur visibilité et de permettre aux citoyens et touristes de faire des choix éclairés et responsables.
+  </p>
+</section>
+<section class="location">
+  <h2>Transparence et engagement</h2>
+  <p>
+    Ce site ne dépend d’aucun groupe commercial. Les informations sont sélectionnées avec soin et nous privilégions toujours la transparence, la cohérence écologique et l’éthique.
+    Si vous êtes un commerce engagé et souhaitez apparaître ou bénéficier d’un encadré publicitaire, contactez-nous.
+  </p>
+  <div class="address">📩 Contact : paris.ecotour@gmail.com</div>
+</section>
+
+<footer>
+  <p id="copyright"></p>
+</footer>
 
 <script>
   const observer = new IntersectionObserver((entries) => {
@@ -309,6 +549,8 @@
       window.scrollTo(0, 0);
       history.replaceState(null, null, ' ');
     }, 10);
+    const year = new Date().getFullYear();
+    document.getElementById("copyright").textContent = `© ${year} Paris Éco-Tour – Tous droits réservés`;
   });
 </script>
 
