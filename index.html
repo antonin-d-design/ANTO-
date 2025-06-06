@@ -135,6 +135,26 @@
       text-decoration: underline;
       margin: 0 0.5rem;
     }
+    .ad-banner {
+      margin-top: 2rem;
+      padding: 1rem;
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .ad-banner p {
+      font-size: 1rem;
+      color: #333;
+    }
+    .ad-banner a {
+      color: #2e7d32;
+      font-weight: bold;
+      text-decoration: none;
+    }
     #cookie-banner {
       position: fixed;
       bottom: 0;
@@ -176,7 +196,6 @@
   </style>
 </head>
 <body>
-
 <nav role="navigation" aria-label="Navigation principale">
   <a href="#restaurants">Restaurants</a>
   <a href="#magasins">Magasins</a>
@@ -365,22 +384,25 @@
   <a href="politiquedeconfidentialité.html">Politique de confidentialité</a>
 </footer>
 
-
 <footer>
-    <p id="copyright"></p>
+  <p>&copy; 2025 Paris Éco-Tour. Tous droits réservés.</p>
   <div class="legal-links">
-    <a href="/mentions-legales.html">Mentions légales</a> |
-    <a href="/politique-confidentialite.html">Politique de confidentialité</a>
+    <a href="#">Mentions légales</a> |
+    <a href="#">Politique de confidentialité</a>
+  </div>
+  <div class="ad-banner">
+    <p>✨ Découvrez nos partenaires écoresponsables sur <a href="https://antonin-d-design.github.io/ANTO-/">ANTO-</a> : créations durables et design éthique à Paris.</p>
+    <p>🤝 Nous collaborons actuellement avec <strong>26 partenaires engagés</strong> dans le tourisme durable.</p>
   </div>
 </footer>
 
 <div id="cookie-banner">
-  <span>Ce site utilise des cookies uniquement à des fins fonctionnelles. En continuant, vous acceptez leur utilisation.</span>
-  <button onclick="acceptCookies()">OK</button>
+  <span>Ce site utilise des cookies pour améliorer votre expérience.</span>
+  <button onclick="this.parentElement.style.display='none'">Accepter</button>
 </div>
 
 <script>
-  const observer = new IntersectionObserver((entries) => {
+  const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
@@ -391,24 +413,6 @@
   document.querySelectorAll('.location').forEach(section => {
     observer.observe(section);
   });
-
-  window.addEventListener("load", () => {
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-      history.replaceState(null, null, ' ');
-    }, 10);
-    const year = new Date().getFullYear();
-    document.getElementById("copyright").textContent = `© ${year} Paris Éco-Tour – Tous droits réservés`;
-  });
-
-  function acceptCookies() {
-    document.getElementById("cookie-banner").style.display = "none";
-    localStorage.setItem("cookiesAccepted", "true");
-  }
-
-  if (localStorage.getItem("cookiesAccepted") === "true") {
-    document.getElementById("cookie-banner").style.display = "none";
-  }
 </script>
 
 </body>
