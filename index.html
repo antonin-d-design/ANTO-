@@ -3,413 +3,129 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="google-site-verification" content="_-Bd1VmknTYCuIeRogWrKpmvgmSKTZV8ygktHXjFXUo" />
-  <title>Paris Éco-Tour | Tourisme durable à Paris</title>
-  <meta name="description" content="Découvrez le tourisme durable à Paris : lieux écoresponsables, restaurants végétariens, marchés bio, activités zéro déchet et hébergements écologiques." />
-  <meta name="keywords" content="tourisme durable Paris, bio Paris, écotourisme, restaurant végétarien, hébergement écologique, zéro déchet" />
+  <title>Studio Freelance | Communication & Design</title>
+  <meta name="description" content="Services de communication freelance : création de logo, brochure, gestion de réseaux sociaux, identité visuelle et plus." />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #f2fefb;
-      color: #2e7d32;
-      overflow-x: hidden;
+      margin: 0;
+      background: #fdfdfd;
+      color: #222;
     }
     nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background-color: #c8f3e3;
+      background: #222;
+      color: white;
       display: flex;
       justify-content: center;
-      gap: 2.5rem;
-      padding: 1.8rem 0;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      gap: 2rem;
+      padding: 1.5rem;
     }
     nav a {
-      color: #145c3c;
-      font-weight: bold;
-      font-size: 1.3rem;
+      color: white;
       text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    nav a:hover {
-      color: #0e3925;
+      font-weight: bold;
     }
     header {
-      background: linear-gradient(135deg, #e1f8f0 0%, #f9fefc 100%);
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
       text-align: center;
-      padding: 6rem 1rem 2rem;
+      padding: 8rem 2rem 4rem;
+      background: #e3f2fd;
     }
     header h1 {
-      font-size: 3.8rem;
-      margin-bottom: 1.5rem;
-      line-height: 1.1;
+      font-size: 3.2rem;
+      margin-bottom: 1rem;
     }
     header p {
+      font-size: 1.3rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    .section {
+      max-width: 1000px;
+      margin: 4rem auto;
+      padding: 0 1rem;
+    }
+    .section h2 {
+      text-align: center;
+      font-size: 2.4rem;
+      margin-bottom: 2rem;
+    }
+    .service {
+      background: #f5f5f5;
+      margin-bottom: 2rem;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .service h3 {
+      margin-top: 0;
       font-size: 1.6rem;
-      color: #333;
-      max-width: 700px;
     }
-    .category-title {
-      font-size: 3rem;
-      margin-top: 6rem;
-      margin-bottom: 1rem;
-      text-align: center;
-      color: #1b5e20;
-      text-transform: uppercase;
-      position: relative;
-      scroll-margin-top: 120px;
-    }
-    .category-title::after {
-      content: "";
-      display: block;
-      width: 80px;
-      height: 4px;
-      background-color: #1b5e20;
-      margin: 0.5rem auto 0;
-      border-radius: 4px;
-    }
-    .location {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 3rem 1rem;
-      border-bottom: 2px solid #cce8dd;
-      background-color: #ffffff;
-      border-radius: 12px;
-      margin: 2rem auto;
-      max-width: 900px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-    }
-    .location.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .location h2 {
-      font-size: 2rem;
-      color: #2e7d32;
-      margin-bottom: 0.8rem;
-    }
-    .location p {
-      font-size: 1.1rem;
-      color: #444;
-      text-align: center;
-      max-width: 700px;
-    }
-    .address {
-      margin-top: 0.6rem;
-      font-style: italic;
-      color: #666;
-      transition: transform 0.3s ease, color 0.3s ease;
-    }
-    .address:hover {
-      transform: scale(1.05);
-      color: #1b5e20;
+    .service p {
+      margin: 0.5rem 0 0;
     }
     footer {
       text-align: center;
-      padding: 2rem 1rem;
-      background-color: #c8f3e3;
-      color: #145c3c;
-      font-size: 1rem;
-      margin-top: 4rem;
-    }
-    .legal-links {
-      margin-top: 1rem;
-      font-size: 0.9rem;
-    }
-    .legal-links a {
-      color: #145c3c;
-      text-decoration: underline;
-      margin: 0 0.5rem;
-    }
-    .ad-banner {
-      margin-top: 2rem;
-      padding: 1rem;
-      background-color: #ffffff;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-    .ad-banner p {
-      font-size: 1rem;
-      color: #333;
-    }
-    .ad-banner a {
-      color: #2e7d32;
-      font-weight: bold;
-      text-decoration: none;
-    }
-    #cookie-banner {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: #ffffff;
-      padding: 1rem;
-      box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 9999;
-      font-size: 0.9rem;
-    }
-    #cookie-banner button {
-      background: #2e7d32;
+      padding: 2rem;
+      background: #222;
       color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-      }
-      header h1 {
-        font-size: 2.6rem;
-      }
-      header p {
-        font-size: 1.2rem;
-      }
-      .category-title {
-        font-size: 2.4rem;
-      }
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-<nav role="navigation" aria-label="Navigation principale">
-  <a href="#restaurants">Restaurants</a>
-  <a href="#magasins">Magasins</a>
-  <a href="#hotels">Hôtels</a>
-  <a href="#activites">Activités</a>
-  <a href="#a-propos">À propos</a>
-</nav>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-<header>
-  <h1>🌱 Paris Éco-Tour — Tourisme durable & écoresponsable</h1>
-  <p>
-    Découvrez les perles écoresponsables de Paris. Restaurants végétariens, marchés bio, ateliers zéro déchet, hébergements durables...  
-    Vivez une expérience de tourisme responsable, locale et engagée.
-  </p>
-</header>
+  <header>
+    <h1>🎨 Studio Freelance Communication</h1>
+    <p>Spécialisé en création graphique, identité visuelle et gestion de réseaux sociaux pour marques ambitieuses.</p>
+  </header>
 
-<h2 class="category-title" id="restaurants">Restaurants</h2>
-<section class="location">
-  <h2>Le Potager de Charlotte</h2>
-  <p>Restaurant végétal créatif avec produits frais et bio. Une cuisine éthique dans une ambiance apaisante.</p>
-  <div class="address">📍 12 Rue de la Tour d'Auvergne, 75009 Paris</div>
-</section>
-<section class="location">
-  <h2>Le Potager du Marais</h2>
-  <p>Cuisine française traditionnelle revisitée en version végétarienne et bio. Plats savoureux et gourmands dans une ambiance chaleureuse.</p>
-  <div class="address">📍 26 Rue Saint-Paul, 75004 Paris</div>
-</section>
-<section class="location">
-  <h2>L'Arpège</h2>
-  <p>Restaurant gastronomique 3 étoiles Michelin, mettant à l’honneur les légumes bio de ses jardins. Engagement fort pour le bio et la saisonnalité.</p>
-  <div class="address">📍 84 Rue de Varenne, 75007 Paris</div>
-</section>
-<section class="location">
-  <h2>42 Degrés</h2>
-  <p>Premier restaurant vegan cru de Paris, alliant gastronomie et alimentation vivante. Cuisine sans cuisson à base de produits bio.</p>
-  <div class="address">📍 109 Rue du Faubourg Poissonnière, 75009 Paris</div>
-</section>
-<section class="location">
-  <h2>Jah Jah by Le Tricycle</h2>
-  <p>Cantine afro-vegan, colorée et gourmande. Plats végétaux inspirés des Caraïbes et d’Afrique, à base de produits frais.</p>
-  <div class="address">📍 11 Rue des Petites Écuries, 75010 Paris</div>
-</section>
+  <section class="section" id="services">
+    <h2>Services</h2>
 
-<h2 class="category-title" id="magasins">Magasins</h2>
-<section class="location">
-  <h2>Marché Raspail</h2>
-  <p>Marché bio dominical incontournable. Produits locaux, fruits et légumes frais, pain artisanal, le tout en circuit court.</p>
-  <div class="address">📍 Boulevard Raspail, 75006 Paris</div>
-</section>
-<section class="location">
-  <h2>The Naked Shop</h2>
-  <p>Boutique zéro déchet proposant des produits d'hygiène et d'entretien en vrac, avec un système de consigne pour les flacons.</p>
-  <div class="address">📍 76 Rue Oberkampf, 75011 Paris</div>
-</section>
-<section class="location">
-  <h2>Nous Anti-Gaspi</h2>
-  <p>Épicerie vendant des produits écartés de la grande distribution pour des raisons esthétiques, réduisant ainsi le gaspillage alimentaire.</p>
-  <div class="address">📍 Plusieurs adresses à Paris</div>
-</section>
-<section class="location">
-  <h2>Biocoop Dada</h2>
-  <p>Supermarché coopératif bio avec large choix de produits locaux, équitables et en vrac.</p>
-  <div class="address">📍 12 Rue de la Fontaine au Roi, 75011 Paris</div>
-</section>
-<section class="location">
-  <h2>Welcome Bio</h2>
-  <p>Épicerie bio indépendante avec des produits de petits producteurs et une belle sélection vrac.</p>
-  <div class="address">📍 10 Rue Boulle, 75011 Paris</div>
-</section>
+    <div class="service">
+      <h3>Création de logo</h3>
+      <p>Un logo sur mesure qui reflète parfaitement votre identité et attire votre public cible.</p>
+    </div>
 
-<h2 class="category-title" id="hotels">Hôtels</h2>
-<section class="location">
-  <h2>Solar Hôtel</h2>
-  <p>Hôtel écologique et abordable. Petit-déjeuner bio, tri des déchets, jardin partagé et hébergement durable à Paris.</p>
-  <div class="address">📍 22 Rue Boulard, 75014 Paris</div>
-</section>
-<section class="location">
-  <h2>Hôtel Villa M</h2>
-  <p>Bâtiment végétalisé avec une architecture naturaliste. Rooftop avec vue Tour Eiffel, espaces bien-être, coworking et restaurant méditerranéen bio.</p>
-  <div class="address">📍 24 Boulevard Pasteur, 75015 Paris</div>
-</section>
-<section class="location">
-  <h2>Hidden Hôtel</h2>
-  <p>Éco-hôtel élégant avec matériaux naturels, literie en fibre de coco, petit-déjeuner bio. Ambiance zen et durable.</p>
-  <div class="address">📍 28 Rue de l’Arc de Triomphe, 75017 Paris</div>
-</section>
-<section class="location">
-  <h2>Hôtel Gavarni</h2>
-  <p>Premier hôtel indépendant parisien à obtenir l’Ecolabel européen. Tri, énergie verte et petit-déjeuner bio.</p>
-  <div class="address">📍 5 Rue Gavarni, 75016 Paris</div>
-</section>
-<section class="location">
-  <h2>Hôtel Le Pavillon</h2>
-  <p>Éco-hôtel intime et charmant utilisant des matériaux écologiques et une gestion durable de l’eau et de l’électricité.</p>
-  <div class="address">📍 54 Rue Saint-Dominique, 75007 Paris</div>
-</section>
+    <div class="service">
+      <h3>Identité visuelle complète</h3>
+      <p>Palette de couleurs, typographies, chartes graphiques : un univers cohérent pour votre marque.</p>
+    </div>
 
-<h2 class="category-title" id="activites">Activités</h2>
-<section class="location">
-  <h2>La Recyclerie</h2>
-  <p>Ancienne gare devenue repaire écolo avec café solidaire, potager urbain et ateliers pour tous. Idéal pour se ressourcer à Paris.</p>
-  <div class="address">📍 83 Boulevard Ornano, 75018 Paris</div>
-</section>
-<section class="location">
-  <h2>La Maison du Zéro Déchet</h2>
-  <p>Centre engagé pour un mode de vie sans gaspillage. Ateliers, conseils pratiques et boutique zéro déchet.</p>
-  <div class="address">📍 1 Rue Charles Nodier, 75018 Paris</div>
-</section>
-<section class="location">
-  <h2>Jardin partagé Le Poireau Agile</h2>
-  <p>Jardin collectif écologique, lieu d’échange et de transmission autour du compostage et de la biodiversité urbaine.</p>
-  <div class="address">📍 14 Rue de Thionville, 75019 Paris</div>
-</section>
-<section class="location">
-  <h2>Au Grain Près</h2>
-  <p>Café associatif où l'on peut participer à des ateliers écoresponsables autour de l'alimentation durable et locale.</p>
-  <div class="address">📍 8 Rue Jeanne d'Arc, 75013 Paris</div>
-</section>
-<h2 class="category-title" id="activites">Activités</h2>
-<section class="location">
-  <h2>La Recyclerie</h2>
-  <p>Ancienne gare devenue repaire écolo avec café solidaire, potager urbain et ateliers pour tous. Idéal pour se ressourcer à Paris.</p>
-  <div class="address">📍 83 Boulevard Ornano, 75018 Paris</div>
-</section>
-<section class="location">
-  <h2>La Maison du Zéro Déchet</h2>
-  <p>Centre engagé pour un mode de vie sans gaspillage. Ateliers, conseils pratiques et boutique zéro déchet.</p>
-  <div class="address">📍 1 Rue Charles Nodier, 75018 Paris</div>
-</section>
-<section class="location">
-  <h2>Jardin partagé Le Poireau Agile</h2>
-  <p>Jardin collectif écologique, lieu d’échange et de transmission autour du compostage et de la biodiversité urbaine.</p>
-  <div class="address">📍 14 Rue de Thionville, 75019 Paris</div>
-</section>
-<section class="location">
-  <h2>Au Grain Près</h2>
-  <p>Café associatif où l'on peut participer à des ateliers écoresponsables autour de l'alimentation durable et locale.</p>
-  <div class="address">📍 8 Rue Jeanne d'Arc, 75013 Paris</div>
-</section>
-<section class="location">
-  <h2>Clinamen</h2>
-  <p>Ateliers et formations autour de l’écologie pratique, l’autonomie, l’agriculture urbaine et la permaculture à Paris.</p>
-  <div class="address">📍 18 Rue des Terres au Curé, 75013 Paris</div>
-</section>
-<section class="location">
-  <h2>Atelier ReMise</h2>
-  <p>Atelier participatif de réparation de vélos et d’apprentissage de la mécanique pour favoriser la mobilité douce.</p>
-  <div class="address">📍 31 Rue des Orteaux, 75020 Paris</div>
-</section>
-<section class="location">
-  <h2>Les Grands Voisins</h2>
-  <p>Ancien hôpital reconverti en tiers-lieu solidaire avec jardins, artisanat, alimentation locale, activités écocitoyennes et espace de coworking.</p>
-  <div class="address">📍 74 Avenue Denfert-Rochereau, 75014 Paris</div>
-</section>
+    <div class="service">
+      <h3>Brochures & supports imprimés</h3>
+      <p>Dépliants, flyers, cartes de visite... des créations graphiques professionnelles et percutantes.</p>
+    </div>
 
-<h2 class="category-title" id="a-propos">À propos</h2>
-<section class="location">
-  <h2>Notre mission</h2>
-  <p>
-    Paris Éco-Tour est une initiative indépendante née de l’envie de valoriser les lieux engagés dans la transition écologique à Paris.
-    Nous référençons gratuitement les adresses qui partagent des valeurs d’écoresponsabilité : alimentation végétale, zéro déchet, économie circulaire, tourisme durable…
-  </p>
-  <p>
-    Ce site est destiné à tous ceux qui souhaitent découvrir Paris autrement, de façon respectueuse de l’environnement, des humains et du vivant.
-  </p>
-</section>
-<section class="location">
-  <h2>Pourquoi ce projet ?</h2>
-  <p>
-    Face aux enjeux climatiques et sociaux, il nous paraît essentiel de mettre en lumière les acteurs locaux qui s'engagent concrètement pour un avenir plus durable.
-    Notre objectif est de faciliter leur visibilité et de permettre aux citoyens et touristes de faire des choix éclairés et responsables.
-  </p>
-</section>
-<section class="location">
-  <h2>Transparence et engagement</h2>
-  <p>
-    Ce site ne dépend d’aucun groupe commercial. Les informations sont sélectionnées avec soin et nous privilégions toujours la transparence, la cohérence écologique et l’éthique.
-    Si vous êtes un commerce engagé et souhaitez apparaître ou bénéficier d’un encadré publicitaire, contactez-nous.
-  </p>
-  <div class="address">📩 Contact : ecotourparis@gmail.com</div>
-</section>
+    <div class="service">
+      <h3>Gestion de réseaux sociaux</h3>
+      <p>Stratégie, création de contenu, publications et reporting pour booster votre présence en ligne.</p>
+    </div>
+
+    <div class="service">
+      <h3>Web design</h3>
+      <p>Design de sites vitrines modernes, responsives et en accord avec votre image de marque.</p>
+    </div>
+  </section>
+
+  <section class="section" id="portfolio">
+    <h2>Portfolio</h2>
+    <p style="text-align: center;">Découvrez prochainement une sélection de mes réalisations dans l'identité visuelle, le print et le digital.</p>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Contact</h2>
+    <p style="text-align: center;">Vous avez un projet ? Écrivez-moi à <a href="mailto:contact@freelance-comm.fr">contact@freelance-comm.fr</a></p>
+  </section>
 
   <footer>
-  <p>&copy; 2025 Paris Éco-Tour</p>
-  <a href="mentionlegal.html">Mentions légales</a> |
-  <a href="politiquedeconfidentialité.html">Politique de confidentialité</a>
-</footer>
-
-
-  </div>
-  <div class="ad-banner">
-    <p>✨ Découvrez nos partenaires écoresponsables sur <a href="https://antonin-d-design.github.io/ANTO-/">ANTO-</a> : créations durables et design éthique à Paris.</p>
-    <p>🤝 Nous collaborons actuellement avec <strong>26 partenaires engagés</strong> dans le tourisme durable.</p>
-  </div>
-</footer>
-
-<div id="cookie-banner">
-  <span>Ce site utilise des cookies pour améliorer votre expérience.</span>
-  <button onclick="this.parentElement.style.display='none'">Accepter</button>
-</div>
-
-<script>
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.location').forEach(section => {
-    observer.observe(section);
-  });
-</script>
-
+    &copy; 2025 Studio Freelance Communication — Tous droits réservés
+  </footer>
 </body>
 </html>
